@@ -37,7 +37,7 @@ export async function generateRingImage(config: RingConfig): Promise<string> {
   Setting Style: ${config.setting}.
   Band Style: ${config.bandStyle}.
   
-  The image should be a professional studio macro shot with soft lighting, sharp focus on the gemstone, and elegant reflections, ring only, upright at 45 degrees, Straight-on medium shot, centered framing, perfectly symmetrical. White background. High resolution, 8k quality.`;
+  The image should be a professional studio macro shot with soft lighting, sharp focus on the gemstone, and elegant reflections, ring only, upright at 45 degrees, centered framing. White background. High resolution, 8k quality.`;
 
   try {
     const response = await ai.models.generateContent({
