@@ -27,6 +27,6 @@ export const BAND_DESCRIPTIONS: Partial<Record<BandStyle, string>> = {
   'Squarey': 'Band is composed of a continuous, staggered sequence of square settings arranged in an alternating zig-zag pattern, each holding a faceted stone',
   'Checker': 'Band looks like a two-row checkerboard pattern, with polished gold blocks and square clear stones alternating from one row to the other around the band',
   'Simple Coil': 'Band is smooth with coils around the shoulders near the bezel',
-  'Studded': 'Band with flat round studs. Surrounding these studs are slightly smaller beads to fill the remaining space on the band',
+  'Studded': 'Band with flat round studs. Surrounding these studs are slightly smaller beads to fill the remaining space on the band. Band is made of one material.',
 };
 export const IMAGE_SIZES: ImageSize[] = ['1K', '2K', '4K'];
