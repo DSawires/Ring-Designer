@@ -41,7 +41,7 @@ export async function generateRingImage(config: RingConfig): Promise<string> {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-image-preview',
+      model: 'gemini-3.1-flash-image-preview',
       contents: {
         parts: [{ text: prompt }],
       },
