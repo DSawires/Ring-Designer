@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import { RingConfig } from "../types";
+import { RingConfig, BAND_DESCRIPTIONS } from "../types";
 
 // We need to declare the window interface for the AI Studio specific methods
 declare global {
@@ -31,12 +31,17 @@ export async function generateRingImage(config: RingConfig): Promise<string> {
   }
   const ai = new GoogleGenAI({ apiKey });
 
+  const bandDescription = BAND_DESCRIPTIONS[config.bandStyle];
+  const bandStyleText = bandDescription
+    ? `${config.bandStyle} - ${bandDescription}`
+    : config.bandStyle;
+
   const prompt = `A photorealistic, high-jewelry product shot of a ring.
   Metal: ${config.metal}.
   Center Stone: ${config.gemstone}, Cut: ${config.cut}.
   Setting Style: ${config.setting}.
-  Band Style: ${config.bandStyle}.
-  
+  Band Style: ${bandStyleText}.
+
   The image should be a professional studio macro shot with soft lighting, sharp focus on the gemstone, and elegant reflections, ring only, upright at 45 degrees, centered framing. White background. High resolution, 8k quality.`;
 
   try {
