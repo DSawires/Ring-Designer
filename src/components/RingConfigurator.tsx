@@ -1,5 +1,5 @@
 import React from 'react';
-import { RingConfig, METALS, GEMSTONES, CUTS, SETTINGS, BAND_STYLES, IMAGE_SIZES } from '../types';
+import { RingConfig, METALS, GEMSTONES, CUTS, SETTINGS, BAND_STYLES, BAND_DESCRIPTIONS, IMAGE_SIZES } from '../types';
 import { motion } from 'motion/react';
 
 interface RingConfiguratorProps {
@@ -16,11 +16,12 @@ const Section = ({ title, children }: { title: string, children: React.ReactNode
   </div>
 );
 
-const Option: React.FC<{ label: string, selected: boolean, onClick: () => void }> = ({ label, selected, onClick }) => (
+const Option: React.FC<{ label: string, selected: boolean, onClick: () => void, description?: string }> = ({ label, selected, onClick, description }) => (
   <motion.button
     whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
     onClick={onClick}
+    title={description}
     className={`px-4 py-2 rounded-full text-sm transition-all duration-300 border ${
       selected
         ? 'bg-stone-900 text-white border-stone-900 shadow-md'
@@ -91,6 +92,7 @@ export function RingConfigurator({ config, onChange }: RingConfiguratorProps) {
             label={style}
             selected={config.bandStyle === style}
             onClick={() => updateConfig('bandStyle', style)}
+            description={BAND_DESCRIPTIONS[style]}
           />
         ))}
       </Section>
